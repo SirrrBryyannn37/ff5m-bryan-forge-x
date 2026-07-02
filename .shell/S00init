@@ -140,6 +140,9 @@ initialize() {
     echo "// Apply klipper patches..."
     apply_klipper_patches
 
+    echo "// Bryan Forge X defaults..."
+    /opt/config/mod/.shell/bfx_install_defaults.sh
+
     echo "// Restore config..."
     fix_config
 

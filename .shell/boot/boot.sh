@@ -11,6 +11,8 @@
 MOD_CUSTOM_BOOT=0
 source /opt/config/mod/.shell/common.sh
 
+    /opt/config/mod/.shell/bfx_install_defaults.sh
+
 if [ ! -f /etc/init.d/S00init ]; then
     echo "@@ Missing initialization script. Initialize now."
     

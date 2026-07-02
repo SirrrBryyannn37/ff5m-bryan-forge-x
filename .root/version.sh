@@ -27,10 +27,10 @@ update_var() {
 }
 
 
-update_var "NAME" "Forge-X"
+update_var "NAME" "Bryan Forge X"
 update_var "VERSION" "${MOD_VERSION}"
 update_var "VERSION_ID" "${MOD_VERSION}-${PATCH_VERSION}"
-update_var "PRETTY_NAME" "Forge-X ${MOD_VERSION}"
+update_var "PRETTY_NAME" "Bryan Forge X ${MOD_VERSION}"
 update_var "VERSION_CODENAME" "FF5M ${FIRMWARE_VERSION} / ${MOD_VERSION}-${PATCH_VERSION}"
 
 echo "The os-release file has been updated."

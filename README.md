@@ -1,3 +1,5 @@
+> **Bryan Forge X** — personal fork of [DrA1ex/ff5m](https://github.com/DrA1ex/ff5m.git). OTA updates from `https://github.com/YOUR_GITHUB_USER/ff5m-bryan-forge-x.git` branch `bryan-forge-x`. PC workflow: `bryan-forge-x` repo.
+
 <p align="center">
    <img width="600" src="https://github.com/user-attachments/assets/1e1e0b03-a424-4da3-8285-d62dd74470de" />
 </p>

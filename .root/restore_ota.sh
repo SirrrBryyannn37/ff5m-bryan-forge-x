@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script to initialize Forge-X OTA
+## Script to initialize Bryan Forge X OTA
 ##
 ## Copyright (C) 2025, Alexander K <https://github.com/drA1ex>
 ##
@@ -29,9 +29,9 @@ INSERT OR REPLACE INTO "namespace_store" ("namespace", "key", "value") VALUES ('
     "git_branch": "$GIT_BRANCH",
     "git_messages":
     [],
-    "git_owner": "DrA1ex",
+    "git_owner": "YOUR_GITHUB_USER",
     "git_remote": "origin",
-    "git_repo_name": "ff5m",
+    "git_repo_name": "ff5m-bryan-forge-x",
     "head_detached": false,
     "is_valid": true,
     "last_config_hash": "***skip***",
@@ -41,7 +41,7 @@ INSERT OR REPLACE INTO "namespace_store" ("namespace", "key", "value") VALUES ('
     "pinned_commit_valid": true,
     "pip_version":
     [],
-    "recovery_url": "https://github.com/DrA1ex/ff5m.git",
+    "recovery_url": "https://github.com/YOUR_GITHUB_USER/ff5m-bryan-forge-x.git",
     "repo_valid": true,
     "rollback_branch": "$GIT_BRANCH",
     "rollback_commit": "$GIT_COMMIT_FULL",
@@ -49,7 +49,7 @@ INSERT OR REPLACE INTO "namespace_store" ("namespace", "key", "value") VALUES ('
     "untracked_files":
     [],
     "upstream_commit": "$GIT_COMMIT_FULL",
-    "upstream_url": "https://github.com/DrA1ex/ff5m.git",
+    "upstream_url": "https://github.com/YOUR_GITHUB_USER/ff5m-bryan-forge-x.git",
     "upstream_version": "$GIT_VERSION"
 }');
 EOF
