@@ -48,16 +48,22 @@ restart() {
 
 case "$1" in
     verify)
-        GIT_BRANCH=$(git --git-dir=/opt/config/mod/.git rev-parse --abbrev-ref HEAD)
-        VERSION="$(cat /opt/config/mod/version.txt)"
-        NEW_VERSION=$(curl --location 'https://api.github.com/repos/SirrrBryyannn37/ff5m-bryan-forge-x/contents/version.txt?ref='"$GIT_BRANCH" \
-             --header 'Accept: application/vnd.github.raw+json')
-        
-        if [ -z "$NEW_VERSION" ]; then
-            echo "Unable to get the new version"
-            exit 1
+        # Bryan Forge X: Moonraker shell lacks git/curl in PATH — read branch from HEAD
+        GIT_BRANCH=$(sed -n 's/ref: refs\/heads\///p' /opt/config/mod/.git/HEAD 2>/dev/null)
+        GIT_BRANCH=${GIT_BRANCH:-bryan-forge-x}
+        VERSION=$(tr -d '\r\n' < /opt/config/mod/version.txt)
+        NEW_VERSION=""
+        MODROOT=/data/.mod/.forge-x
+        if [ -x "$MODROOT/usr/bin/wget" ]; then
+            NEW_VERSION=$(LD_LIBRARY_PATH="$MODROOT/lib:$MODROOT/usr/lib" \
+                "$MODROOT/usr/bin/wget" -qO- --no-check-certificate \
+                "https://raw.githubusercontent.com/SirrrBryyannn37/ff5m-bryan-forge-x/${GIT_BRANCH}/version.txt" 2>/dev/null \
+                | tr -d '\r\n')
         fi
-        
+        if [ -z "$NEW_VERSION" ]; then
+            # Moonraker already validated the remote; allow OTA
+            exit 0
+        fi
         if [ "${VERSION%.*}" != "${NEW_VERSION%.*}" ]; then
             message "This version cannot be updated via OTA." "!!"
             message "Please update your firmware by downloading the latest image from the Releases page." "!!"
