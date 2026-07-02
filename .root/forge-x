@@ -50,7 +50,7 @@ case "$1" in
     verify)
         GIT_BRANCH=$(git --git-dir=/opt/config/mod/.git rev-parse --abbrev-ref HEAD)
         VERSION="$(cat /opt/config/mod/version.txt)"
-        NEW_VERSION=$(curl --location 'https://api.github.com/repos/your_github_user/ff5m-bryan-forge-x/contents/version.txt?ref='"$GIT_BRANCH" \
+        NEW_VERSION=$(curl --location 'https://api.github.com/repos/SirrrBryyannn37/ff5m-bryan-forge-x/contents/version.txt?ref='"$GIT_BRANCH" \
              --header 'Accept: application/vnd.github.raw+json')
         
         if [ -z "$NEW_VERSION" ]; then
@@ -61,12 +61,12 @@ case "$1" in
         if [ "${VERSION%.*}" != "${NEW_VERSION%.*}" ]; then
             message "This version cannot be updated via OTA." "!!"
             message "Please update your firmware by downloading the latest image from the Releases page." "!!"
-            message "Visit: https://github.com/YOUR_GITHUB_USER/ff5m-bryan-forge-x.git" "!!"
+            message "Visit: https://github.com/SirrrBryyannn37/ff5m-bryan-forge-x.git" "!!"
 
             command "action:prompt_begin OTA Update"
             command "action:prompt_text This version cannot be updated via OTA."
             command "action:prompt_text Please update your firmware by downloading the latest image from the Releases page."
-            command "action:prompt_text Visit: https://github.com/YOUR_GITHUB_USER/ff5m-bryan-forge-x.git"
+            command "action:prompt_text Visit: https://github.com/SirrrBryyannn37/ff5m-bryan-forge-x.git"
             command "action:prompt_end"
             command "action:prompt_show"
             
