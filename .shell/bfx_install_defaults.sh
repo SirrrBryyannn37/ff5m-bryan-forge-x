@@ -18,7 +18,7 @@ install_bfx_defaults() {
         [ -f "$f" ] || continue
         base=$(basename "$f")
         case "$base" in
-            README.txt|variables.bfx.cfg|moonraker.conf|user.moonraker.conf)
+            README.txt|variables.bfx.cfg|moonraker.conf|user.moonraker.conf|bfx_conch_0.8.cfg)
                 continue
                 ;;
         esac
