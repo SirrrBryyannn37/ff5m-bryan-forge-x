@@ -6,6 +6,7 @@ source /opt/config/mod/.shell/common.sh
 
 BFX_MARKER="$MOD_DATA/.bfx_installed"
 DEFAULTS_DIR="$MOD_DATA/defaults"
+[ -d "$DEFAULTS_DIR" ] || DEFAULTS_DIR="/opt/config/mod/mod_data/defaults"
 
 install_bfx_defaults() {
     [ -f "$BFX_MARKER" ] && return 0
@@ -17,10 +18,16 @@ install_bfx_defaults() {
         [ -f "$f" ] || continue
         base=$(basename "$f")
         case "$base" in
-            README.txt|variables.bfx.cfg|moonraker.conf)
+            README.txt|variables.bfx.cfg|moonraker.conf|user.moonraker.conf)
                 continue
                 ;;
         esac
+        if [ "$base" = "splash.img.xz" ]; then
+            cp -f "$f" "$MOD_DATA/splash.img.xz"
+            cp -f "$f" /opt/config/mod_data/splash.img.xz 2>/dev/null || true
+            echo "//   installed splash.img.xz"
+            continue
+        fi
         dest="$MOD_DATA/$base"
         if [ ! -f "$dest" ]; then
             cp -f "$f" "$dest"
